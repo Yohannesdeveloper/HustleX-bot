@@ -1,3 +1,3 @@
-worker: python main.py
+worker: python hustlex-bot/main.py
 
 
