@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Success | HustleX</title>
+<style>
+body { font-family: Arial; text-align: center; padding: 50px; background: #f5f7fa; }
+h1 { color: #00BCD4; }
+a { text-decoration: none; color: white; background: #00BCD4; padding: 10px 20px; border-radius: 6px; }
+a:hover { background: #0097A7; }
+</style>
+</head>
+<body>
+{% if posted %}
+  <h1>✅ Job Posted Successfully!</h1>
+  <p>Shared to Telegram.</p>
+{% else %}
+  <h1>⚠️ Job saved, but Telegram post failed</h1>
+  <p style="max-width:600px; margin: 0 auto 20px; color:#374151;">{{ details }}</p>
+{% endif %}
+<a href="/post-job">Post Another Job</a>
+</body>
+</html>

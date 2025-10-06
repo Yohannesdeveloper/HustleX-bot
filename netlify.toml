@@ -1,0 +1,12 @@
+# Netlify configuration
+
+[build]
+  functions = "netlify/functions"
+
+# Redirect POST /post-job to root (static site) but still capture Netlify Forms.
+[[redirects]]
+  from = "/post-job"
+  to = "/post-job.html"
+  status = 200
+  force = true
+  conditions = {Language = ["en"]}

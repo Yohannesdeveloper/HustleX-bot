@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HustleX - Profile</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#4f7cff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1 id="appTitle">HustleX</h1>
+      <div class="lang">
+        <label for="langSelect" id="languageLabel">Language</label>
+        <select id="langSelect" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="am">አማርኛ</option>
+          <option value="om">Afaan Oromoo</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="card">
+      <h2 id="profileTitle">Profile</h2>
+
+      <section id="profileData">
+        <div class="form-row">
+          <label for="nameInput" id="nameLabel">Name</label>
+          <input id="nameInput" name="name" type="text" placeholder="Your name" readonly>
+        </div>
+
+        <div class="form-row">
+          <label for="contactInput" id="contactLabel">Contact</label>
+          <input id="contactInput" name="contact" type="text" placeholder="you@example.com" readonly>
+        </div>
+      </section>
+
+      <section class="preview">
+        <h3 id="previewTitle">Current Data</h3>
+        <div class="preview__row"><span id="prevNameLabel">Name:</span> <strong id="prevName">—</strong></div>
+        <div class="preview__row"><span id="prevContactLabel">Contact:</span> <strong id="prevContact">—</strong></div>
+        <div class="preview__row"><span id="prevAgeLabel">Age:</span> <strong id="prevAge">—</strong></div>
+      </section>
+    </main>
+
+    <section class="card chat">
+      <h2 id="assistantTitle">Assistant</h2>
+      <div id="chatLog" class="chat__log" aria-live="polite"></div>
+      <form id="chatForm" class="chat__form">
+        <input id="chatInput" type="text" placeholder="Type a command... e.g., 'edit name', 'set language to Amharic'" autocomplete="off">
+        <button type="submit" id="chatSendBtn">Send</button>
+      </form>
+      <div class="chat__hints" id="assistantHints">
+        <span>Try:</span>
+        <code>edit name</code>, <code>edit contact</code>, <code>set language to Amharic</code>
+      </div>
+    </section>
+
+    <footer class="app__footer">
+      <small id="footerNote">Data is stored locally on this device.</small>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
