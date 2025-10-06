@@ -1,0 +1,11 @@
+app = "HustleX"
+
+[build]
+  builder = "paketobuildpacks/builder:base"
+
+[mounts]
+  source="data"
+  destination="/data"
+
+[env]
+  BOT_TOKEN = "8034250378:AAH9wK5c10AC69BerzHz7zriXs3eI6X9B5A"
