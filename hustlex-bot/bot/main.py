@@ -11,7 +11,36 @@ from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandle
 from telegram.error import TelegramError
 from urllib.parse import urlparse
 import aiohttp
+from telegram import Bot
+from telegram.ext import ApplicationBuilder
 
+
+
+
+
+
+
+
+
+BOT_TOKEN = "8034250378:AAH9wK5c10AC69BerzHz7zriXs3eI6X9B5A"
+
+# Create a Bot instance
+bot = Bot(token=BOT_TOKEN)
+
+# Delete any existing webhook
+bot.delete_webhook(drop_pending_updates=True)
+
+# Optional: Verify webhook is deleted
+print("Webhook deleted. Starting bot...")
+
+# Now build your Application as usual
+app = ApplicationBuilder().token(BOT_TOKEN).build()
+
+# Add handlers, etc.
+# app.add_handler(...)
+
+# Start polling
+app.run_polling()
 # Set up logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
