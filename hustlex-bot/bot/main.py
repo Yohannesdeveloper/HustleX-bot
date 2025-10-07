@@ -11,8 +11,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandle
 from telegram.error import TelegramError
 from urllib.parse import urlparse
 import aiohttp
-# Start polling
-app.run_polling()
+
 # Set up logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
